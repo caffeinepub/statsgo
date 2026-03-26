@@ -1,0 +1,151 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* Dark neon navy theme */
+    --background: 0.09 0.022 245;
+    --foreground: 0.93 0.01 250;
+    --card: 0.13 0.03 248;
+    --card-foreground: 0.93 0.01 250;
+    --popover: 0.15 0.035 248;
+    --popover-foreground: 0.93 0.01 250;
+    --primary: 0.88 0.15 200;
+    --primary-foreground: 0.09 0.022 245;
+    --secondary: 0.17 0.04 248;
+    --secondary-foreground: 0.93 0.01 250;
+    --muted: 0.17 0.04 248;
+    --muted-foreground: 0.67 0.03 230;
+    --accent: 0.55 0.25 280;
+    --accent-foreground: 0.93 0.01 250;
+    --destructive: 0.65 0.22 25;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.22 0.04 248;
+    --input: 0.22 0.04 248;
+    --ring: 0.88 0.15 200;
+    --chart-1: 0.88 0.15 200;
+    --chart-2: 0.55 0.25 280;
+    --chart-3: 0.88 0.18 165;
+    --chart-4: 0.75 0.2 60;
+    --chart-5: 0.7 0.22 330;
+    --sidebar: 0.13 0.03 248;
+    --sidebar-foreground: 0.93 0.01 250;
+    --sidebar-primary: 0.88 0.15 200;
+    --sidebar-primary-foreground: 0.09 0.022 245;
+    --sidebar-accent: 0.17 0.04 248;
+    --sidebar-accent-foreground: 0.93 0.01 250;
+    --sidebar-border: 0.22 0.04 248;
+    --sidebar-ring: 0.88 0.15 200;
+
+    /* Custom neon tokens */
+    --neon-cyan: oklch(0.88 0.15 200);
+    --neon-purple: oklch(0.55 0.25 280);
+    --neon-green: oklch(0.88 0.18 165);
+    --neon-cyan-dim: oklch(0.88 0.15 200 / 0.15);
+    --neon-purple-dim: oklch(0.55 0.25 280 / 0.15);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+}
+
+/* Hex background pattern */
+.hex-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='70' viewBox='0 0 60 70'%3E%3Cpolygon points='30,2 58,17 58,53 30,68 2,53 2,17' fill='none' stroke='%231B2A3F' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 60px 70px;
+}
+
+/* Glow effects */
+.glow-cyan {
+  filter: drop-shadow(0 0 8px oklch(0.88 0.15 200 / 0.8))
+    drop-shadow(0 0 20px oklch(0.88 0.15 200 / 0.4));
+}
+
+.glow-purple {
+  filter: drop-shadow(0 0 8px oklch(0.55 0.25 280 / 0.8))
+    drop-shadow(0 0 20px oklch(0.55 0.25 280 / 0.4));
+}
+
+.glow-green {
+  filter: drop-shadow(0 0 8px oklch(0.88 0.18 165 / 0.8))
+    drop-shadow(0 0 20px oklch(0.88 0.18 165 / 0.4));
+}
+
+.text-glow-cyan {
+  text-shadow: 0 0 10px oklch(0.88 0.15 200 / 0.8), 0 0 20px
+    oklch(0.88 0.15 200 / 0.4);
+}
+
+/* Neon box shadow */
+.shadow-neon-cyan {
+  box-shadow: 0 0 10px oklch(0.88 0.15 200 / 0.5), 0 0 30px
+    oklch(0.88 0.15 200 / 0.2), inset 0 0 10px oklch(0.88 0.15 200 / 0.1);
+}
+
+.shadow-neon-purple {
+  box-shadow: 0 0 10px oklch(0.55 0.25 280 / 0.5), 0 0 30px
+    oklch(0.55 0.25 280 / 0.2);
+}
+
+/* Pulse animation */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: oklch(0.09 0.022 245);
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.22 0.04 248);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.88 0.15 200 / 0.5);
+}
